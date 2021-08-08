@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { GoogleObj } from '../interfaces';
 
 @Injectable({
@@ -7,17 +8,24 @@ import { GoogleObj } from '../interfaces';
 })
 export class GoogletranslateService {
 
-  url = `https://translation.googleapis.com/language/translate/v2?key=`;
+  url = `https://translation.googleapis.com/language/translate/v2/?key=`;
+  urlList = `https://translation.googleapis.com/language/translate/v2/languages/?key=`;
+  urlList1 = `https://translation.googleapis.com/language/translate/v2/detect/?key=`;
   key = `AIzaSyB5B1qXnahdx4NC9mNB52TRrxjK-WnBgB0`;
 
   constructor(private http: HttpClient) {
 
   }
 
-  translate(obj: GoogleObj) {
+  translate(obj: GoogleObj) :Observable<any>{
     console.log(this.url+this.key);
     console.log(this.url);
     
     return this.http.post(this.url + this.key, obj);
   }
+
+  list():Observable<any>{
+    return this.http.get(this.urlList + this.key);
+  }
+  
 }

@@ -1,0 +1,5 @@
+<div>do'nt yet have an account? <a [routerLink] = "['/logup']">logup</a></div>
+
+<div><label>E-mail <input type="name nvarchar(255)" placeholder="enter your email addres" [(ngModel)] = loginUser.email></label></div>
+<div><label>password <input type="password" placeholder="enter your password" [(ngModel)] = loginUser.password></label></div>
+<button (click) ="login()">login</button>

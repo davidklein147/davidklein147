@@ -31,5 +31,14 @@ export class AppComponent {
       }
     );
   }
+  getlang():void{
+    this.google.list().subscribe(res =>{
+      console.log(res);
+      
+    },err=>{
+      console.log(err);
+      
+    });
+  }
 }
 

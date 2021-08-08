@@ -1,0 +1,24 @@
+<br>
+<select [(ngModel)] = "inputWord.sourceWord.sourceLang" >
+    <option value = undifind selected hidden >select a language</option>
+    <option *ngFor = "let lang of listOfLang" [value]="lang.Id">{{lang.LanguageName}}</option>
+</select>
+
+<label>source word<input type="text" [(ngModel)] = "inputWord.sourceWord.sourceWord"></label>
+<br>
+<select [(ngModel)] = "inputWord.translateWord.translateLang" >
+    <option value = undifind selected hidden >select a language</option>
+    <option *ngFor = "let lang of listOfLang" [value]="lang.Id">{{lang.LanguageName}}</option>
+</select>
+<label>translate word<input type="text" [(ngModel)] = "inputWord.translateWord.translateWord"></label>
+<br>
+<label>patr of speech 
+<select [(ngModel)] = "inputWord.translateWord.translateLang" >
+    <option value = undifind selected hidden >select a language</option>
+    <option *ngFor = "let lang of listOfLang" [value]="lang.Id">{{lang.LanguageName}}</option>
+</select>
+</label>
+<br>
+<button (click) = "setAndSend()">save</button>
+
+

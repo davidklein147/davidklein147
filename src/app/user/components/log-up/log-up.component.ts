@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LogUpService } from '../../log-up.service';
-import { Logup } from '../../logup';
+import { LogUpService } from '../../log.service';
+import { Logup } from '../../logClasses';
 
 @Component({
   selector: 'app-log-up',
@@ -9,7 +9,8 @@ import { Logup } from '../../logup';
 })
 export class LogUpComponent implements OnInit {
 
-  logupUser = new Logup("","","");
+  logupUser = new Logup();
+  
   constructor(public logupse: LogUpService) {
    }
 

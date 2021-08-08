@@ -6,11 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogUpComponent } from './user/components/log-up/log-up.component';
+import { LoginComponent } from './user/components/login/login.component';
+import { InputWordComponent } from './inputs/components/input-word/input-word.component';
+import { NavigationComponent } from './user/components/navigation/navigation.component';
+import { FormComponent } from './inputs/smartForm/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogUpComponent
+    LogUpComponent,
+    LoginComponent,
+    InputWordComponent,
+    NavigationComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
