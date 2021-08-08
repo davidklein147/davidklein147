@@ -11,6 +11,7 @@ export class InputWordComponent implements OnInit {
 
   inputWord: InputWord;
   listOfLang: any;
+  listPartOfSpeech: any;
 
   constructor(private inputSer: InputsService) {
     this.inputWord = new InputWord(JSON.parse(localStorage.getItem("userData")).userId, true);
@@ -20,8 +21,14 @@ export class InputWordComponent implements OnInit {
 
   ngOnInit(): void {
     this.inputSer.getListOfLang();
-    this.inputSer.setListOfLang().subscribe(res => {
+    this.inputSer.getListPartOfSpeech();
+
+    this.inputSer.sendListOfLang().subscribe(res => {
       this.listOfLang = res;
+    });
+
+    this.inputSer.sendListOfPartOfSpeech().subscribe(res => {
+      this.listPartOfSpeech = res;  
     });
   }
 

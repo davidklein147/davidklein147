@@ -7,26 +7,57 @@ import { HttpService } from '../services/http.service';
 })
 export class InputsService {
 
+  _listOfLang: [];
   listOfLang: BehaviorSubject<[]>;
-  listOfPartOfSpeech: string[];
+  
+  _listOfPartOfSpeech: string[];
+  listOfPartOfSpeech: BehaviorSubject<string[]>;
 
   constructor(private http: HttpService) {
-    this.listOfLang = new BehaviorSubject<[]>([]);
+    this.listOfLang = new BehaviorSubject<[]>(null);
+    this.listOfPartOfSpeech = new BehaviorSubject<[]>(null);
   }
 
-  setListOfLang():Observable<[]>{
+  setLists(): void {
+    this.listOfLang.next(this._listOfLang)
+    this.listOfPartOfSpeech.next(this._listOfPartOfSpeech)
+  }
+
+  sendListOfLang(): Observable<[]> {
     return this.listOfLang;
   }
 
+  sendListOfPartOfSpeech(): Observable<string[]> {
+    return this.listOfPartOfSpeech;
+  }
+
   getListOfLang(): void {
-    this.http.getWithToken("env/lang").subscribe(
-      res => {
-        this.listOfLang.next(res)
-        console.log(this.listOfLang);
-        
-      },
-      err => {
-        console.log(err);
-      })
+    if (!this._listOfLang) {
+      this.http.getWithToken("env/lang").subscribe(
+        res => {
+          console.log(res);
+          
+          this._listOfLang = res;
+          this.setLists();
+        },
+        err => {
+          console.log(err);
+        })
+    }
+  }
+
+  getListPartOfSpeech(): void {
+    if (!this._listOfPartOfSpeech) {
+      this.http.getWithToken("env/partofspeech").subscribe(
+        res => {
+          console.log(res);
+          
+          this._listOfPartOfSpeech = res;
+          this.setLists();
+        },
+        err => {
+          console.log(err);
+        })
+    }
   }
 }

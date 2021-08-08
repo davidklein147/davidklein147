@@ -12,10 +12,10 @@
 </select>
 <label>translate word<input type="text" [(ngModel)] = "inputWord.translateWord.translateWord"></label>
 <br>
-<label>patr of speech 
-<select [(ngModel)] = "inputWord.translateWord.translateLang" >
-    <option value = undifind selected hidden >select a language</option>
-    <option *ngFor = "let lang of listOfLang" [value]="lang.Id">{{lang.LanguageName}}</option>
+<label>part of speech 
+<select [(ngModel)] = "inputWord.translateWord.partOfSpeech" >
+    <option value = undifind selected hidden >select a part</option>
+    <option *ngFor = "let part of listPartOfSpeech" [value]="part.Part">{{part.Part}}</option>
 </select>
 </label>
 <br>
