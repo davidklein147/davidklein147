@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InputsService } from '../../inputs.service';
-import { InputWord } from '../../inputsClasses';
+import { InputWord } from '../../classes/inputsClasses';
+import { Lavels } from '../../classes/repetitionData';
 
 @Component({
   selector: 'app-input-word',
@@ -16,7 +17,6 @@ export class InputWordComponent implements OnInit {
   constructor(private inputSer: InputsService) {
     this.inputWord = new InputWord(JSON.parse(localStorage.getItem("userData")).userId, true);
     console.log(this.inputWord);
-
   }
 
   ngOnInit(): void {

@@ -4,6 +4,9 @@ export class Settings{
     dailyInputAmount : number;
     isWithRepetition: boolean;
     repetitionType: number | number[];
+    isWithHearing: boolean;
+    repetitionOrder;
+
     
 
 

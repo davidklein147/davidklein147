@@ -1,3 +1,5 @@
+import { RepetitionData } from "./repetitionData";
+
 export class InputWord {
     sourceWord: SourceWord;
     translateWord: TranslateWord;
@@ -49,37 +51,3 @@ export class TranslateWord {
     }
 }
 
-export class RepetitionData {
-    TranslateWord: number;
-    type: number;
-    private lavel: number;
-    score: number;
-    private repetitionDate: string;
-
-    constructor(translateWord?: number) {
-        this.TranslateWord = translateWord | 0;
-        this.type = null;
-        this.lavel = 1;
-        this.score = null;
-    }
-
-
-
-    public getLavel(): number {
-        return this.lavel;
-    }
-    public setLavel(lavel: number): void {
-        this.lavel = this.lavel + lavel <= 1 ? 1 : this.lavel + lavel;
-    }
-
-
-
-    public getRepetitionDate(): string {
-        return this.repetitionDate;
-    }
-    public setRepetitionDate(date: Date): void {
-        this.repetitionDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`
-    }
-
-    
-}

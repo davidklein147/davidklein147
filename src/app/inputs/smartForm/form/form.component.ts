@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { InputWord } from '../../inputsClasses';
+import { InputWord } from '../../classes/inputsClasses';
 import { Form } from '../form';
 
 @Component({
