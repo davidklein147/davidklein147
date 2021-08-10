@@ -47,7 +47,7 @@ export class TranslateWord {
     }
 
     public setCreationDate(date: Date): void {
-        this.creationDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`
+        this.creationDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
     }
 }
 

@@ -15,7 +15,7 @@ export class InputWordComponent implements OnInit {
   listPartOfSpeech: any;
 
   constructor(private inputSer: InputsService) {
-    this.inputWord = new InputWord(JSON.parse(localStorage.getItem("userData")).userId, true);
+    this.inputWord = this.inputSer.inputWord;
     console.log(this.inputWord);
   }
 
@@ -32,14 +32,13 @@ export class InputWordComponent implements OnInit {
     });
   }
 
-  setAndSend(): void {
-    let date = new Date()
-    this.inputWord.translateWord.setCreationDate(date); 
-    date.setDate(date.getDate() + 1) 
-    this.inputWord.repetitionData.setRepetitionDate(date);
+  inputWordSetAndSend(): void {
+    //let date = new Date()
+    this.inputWord.translateWord.setCreationDate(new Date()); 
+    //date.setDate(date.getDate() + 1) 
+    this.inputWord.repetitionData.setDateByLavel();
     console.log(this.inputWord);
-    console.dir(new Date())
-
+    this.inputSer.sendInputWord();
   }
 }
 
