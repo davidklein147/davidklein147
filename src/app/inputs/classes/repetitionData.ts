@@ -5,14 +5,14 @@ export class RepetitionData {
     private lavel: number;
     score: number;
     private repetitionDate: string;
-    lavels: Lavels;
+   // lavels: Lavels;
 
     constructor(translateWord?: number, type?: number, lavels?: Lavels) {
         this.TranslateWord = translateWord || 0;
         this.type = type || null;
         this.lavel = 1;
         this.score = null;
-        this.lavels = lavels ? lavels : new Lavels();
+        //this.lavels = lavels ? lavels : new Lavels();
         //this.setDateByLavel();
     }
 
@@ -22,12 +22,12 @@ export class RepetitionData {
         return this.lavel;
     }
     //need to ensure that @parem oldLavel and @param scroe are correct
-    public setLavel(oldLavel: number, score: number): void {
-        if (this.lavel == this.lavels.sumLavels) {
+    public setLavel(oldLavel: number, score: number, lavels: Lavels): void {
+        if (this.lavel == lavels.sumLavels) {
             this.lavel = oldLavel
-        } else if ((oldLavel > 0 && oldLavel <= this.lavels.sumLavels) &&
-            (score > 0 && score >= this.lavels.scores.sumScores)) {
-            this.lavel = this.lavels.getLavlelByScore(oldLavel, score);
+        } else if ((oldLavel > 0 && oldLavel <= lavels.sumLavels) &&
+            (score > 0 && score >= lavels.scores.sumScores)) {
+            this.lavel = lavels.getLavlelByScore(oldLavel, score);
         }
         else {
             throw new Error("incorrect lavel or score");
@@ -43,9 +43,9 @@ export class RepetitionData {
         this.repetitionDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     }
 
-    setDateByLavel() {
+    setDateByLavel(lavels: Lavels) {
         let date = new Date();
-        date.setDate(date.getDate() + this.lavels.daysOfEachLavel[this.lavel - 1]);
+        date.setDate(date.getDate() + lavels.daysOfEachLavel[this.lavel - 1]);
         this.setRepetitionDate(date)
         console.log(date);
 

@@ -36,7 +36,7 @@ export class InputWordComponent implements OnInit {
     //let date = new Date()
     this.inputWord.translateWord.setCreationDate(new Date()); 
     //date.setDate(date.getDate() + 1) 
-    this.inputWord.repetitionData.setDateByLavel();
+    this.inputWord.repetitionData.setDateByLavel(new Lavels());
     console.log(this.inputWord);
     this.inputSer.sendInputWord();
   }
