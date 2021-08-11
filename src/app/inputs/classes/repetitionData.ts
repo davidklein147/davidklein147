@@ -1,22 +1,17 @@
 export class RepetitionData {
 
     TranslateWord: number;
-    type: number;
+    type: string;
     private lavel: number;
     score: number;
     private repetitionDate: string;
-   // lavels: Lavels;
-
-    constructor(translateWord?: number, type?: number, lavels?: Lavels) {
+   
+    constructor(translateWord?: number, type?: string, lavels?: Lavels) {
         this.TranslateWord = translateWord || 0;
-        this.type = type || null;
+        this.type = type || "source";
         this.lavel = 1;
         this.score = null;
-        //this.lavels = lavels ? lavels : new Lavels();
-        //this.setDateByLavel();
     }
-
-
 
     public getLavel(): number {
         return this.lavel;
