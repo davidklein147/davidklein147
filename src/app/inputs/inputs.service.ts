@@ -65,7 +65,13 @@ export class InputsService {
   }
 
   sendInputWord():void{
-    this.http.postWithToken("inputs/create", this.inputWord).subscribe(res =>{
+    this.http.postWithToken("inputs/create", this.inputWord).subscribe(
+      res =>{
+      console.log(res);
+      
+    }, err =>{
+      console.log(err);
+      console.log(err.text);
       
     })
   }

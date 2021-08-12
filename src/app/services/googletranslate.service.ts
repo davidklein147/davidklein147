@@ -18,9 +18,6 @@ export class GoogletranslateService {
   }
 
   translate(obj: GoogleObj) :Observable<any>{
-    console.log(this.url+this.key);
-    console.log(this.url);
-    
     return this.http.post(this.url + this.key, obj);
   }
 

@@ -10,6 +10,7 @@ import { LoginComponent } from './user/components/login/login.component';
 import { InputWordComponent } from './inputs/components/input-word/input-word.component';
 import { NavigationComponent } from './user/components/navigation/navigation.component';
 import { FormComponent } from './inputs/smartForm/form/form.component';
+import { DailyRepetiComponent } from './repetition/components/daily-repeti/daily-repeti.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormComponent } from './inputs/smartForm/form/form.component';
     LoginComponent,
     InputWordComponent,
     NavigationComponent,
-    FormComponent
+    FormComponent,
+    DailyRepetiComponent
   ],
   imports: [
     BrowserModule,

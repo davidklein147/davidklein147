@@ -1,0 +1,14 @@
+<div>
+    <div>creation date : {{singleWord.getDateFormat(singleWord.CreationDate)}}</div>
+    <div>repetition date : {{singleWord.getDateFormat(singleWord.RepetitionDate)}}</div>
+    <div>source word: {{singleWord.SourceWord}}</div>
+    <div *ngIf = "singleWord.PartOfSpeech">part of dpeech: {{singleWord.PartOfSpeech}}</div>
+    <div *ngIf = "singleWord.PartOfSpeech">translate word: {{singleWord.TranslateWord}}</div>
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </div>
+</div>

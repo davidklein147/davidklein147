@@ -1,13 +1,13 @@
 export class RepetitionData {
-
-    TranslateWord: number;
+    
+    translateWordId: number;
     type: string;
     private lavel: number;
     score: number;
     private repetitionDate: string;
    
-    constructor(translateWord?: number, type?: string, lavels?: Lavels) {
-        this.TranslateWord = translateWord || 0;
+    constructor(translateWord?: number, type?: string) {
+        this.translateWordId = translateWord || 0;
         this.type = type || "source";
         this.lavel = 1;
         this.score = null;

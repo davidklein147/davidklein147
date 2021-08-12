@@ -3,9 +3,11 @@ export class Settings{
     defaultTranslateLang: number;
     dailyInputAmount : number;
     isWithRepetition: boolean;
-    repetitionType: number | number[];
+    repetitionType: string | string[];
     isWithHearing: boolean;
     repetitionOrder;
+    lavels;
+    scores;
 
     
 

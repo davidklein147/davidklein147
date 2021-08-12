@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InputWordComponent } from './inputs/components/input-word/input-word.component';
+import { DailyRepetiComponent } from './repetition/components/daily-repeti/daily-repeti.component';
 import { LogUpComponent } from './user/components/log-up/log-up.component';
 import { LoginComponent } from './user/components/login/login.component';
 import { NavigationComponent } from './user/components/navigation/navigation.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {
     path: "n", component: NavigationComponent,
     children:[
-      {path: "inputs", component: InputWordComponent}
+      {path: "inputs", component: InputWordComponent},
+      {path: "repeti", component: DailyRepetiComponent}
     ]
   }
 ];
