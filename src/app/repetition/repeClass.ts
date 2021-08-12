@@ -1,4 +1,4 @@
-export class singleWord {
+export class SingleWord {
     CreationDate: Date;
     Lavel: number;
     PartOfSpeech: string;
@@ -20,7 +20,7 @@ export class singleWord {
     }
 
     getDateFormat(date: Date): string {
-        return `${date.getDate()}/${date.getMonth}/${date.getFullYear()}`
+        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
     }
 }
 

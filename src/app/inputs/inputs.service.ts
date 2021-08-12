@@ -8,22 +8,13 @@ import { InputWord } from './classes/inputsClasses';
 })
 export class InputsService {
   inputWord:InputWord;
-
-  _listOfLang: [];
   listOfLang: BehaviorSubject<[]>;
-  
-  _listOfPartOfSpeech: string[];
   listOfPartOfSpeech: BehaviorSubject<string[]>;
 
   constructor(private http: HttpService) {
     this.inputWord = new InputWord(JSON.parse(localStorage.getItem("userData")).userId, true);
     this.listOfLang = new BehaviorSubject<[]>(null);
     this.listOfPartOfSpeech = new BehaviorSubject<[]>(null);
-  }
-
-  setLists(): void {
-    this.listOfLang.next(this._listOfLang)
-    this.listOfPartOfSpeech.next(this._listOfPartOfSpeech)
   }
 
   sendListOfLang(): Observable<[]> {
@@ -35,13 +26,11 @@ export class InputsService {
   }
 
   getListOfLang(): void {
-    if (!this._listOfLang) {
+    if (!this.listOfLang.value) {
       this.http.getWithToken("env/lang").subscribe(
         res => {
           console.log(res);
-          
-          this._listOfLang = res;
-          this.setLists();
+          this.listOfLang.next(res);
         },
         err => {
           console.log(err);
@@ -50,13 +39,11 @@ export class InputsService {
   }
 
   getListPartOfSpeech(): void {
-    if (!this._listOfPartOfSpeech) {
+    if (!this.listOfPartOfSpeech.value) {
       this.http.getWithToken("env/partofspeech").subscribe(
         res => {
           console.log(res);
-          
-          this._listOfPartOfSpeech = res;
-          this.setLists();
+          this.listOfPartOfSpeech.next(res);
         },
         err => {
           console.log(err);

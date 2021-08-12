@@ -21,7 +21,7 @@ export class RepetitionData {
         if (this.lavel == lavels.sumLavels) {
             this.lavel = oldLavel
         } else if ((oldLavel > 0 && oldLavel <= lavels.sumLavels) &&
-            (score > 0 && score >= lavels.scores.sumScores)) {
+            (score > 0 && score <= lavels.scores.sumScores)) {
             this.lavel = lavels.getLavlelByScore(oldLavel, score);
         }
         else {
@@ -60,7 +60,7 @@ export class Lavels {
             //needs get and set for this.daysOfEachLavel
             this.daysOfEachLavel = daysOfEachLavel.split("-").map(Number);
         } else {
-            this.daysOfEachLavel = [1, 3, 7, 30, 90];
+            this.daysOfEachLavel = [1, 2, 7, 30, 90];
         }
         this.sumLavels = this.daysOfEachLavel.length;
         this.scores = scorse ? scorse : new Scores(this.sumLavels);
