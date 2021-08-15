@@ -7,7 +7,7 @@
     <button *ngIf="!displayTranslateWord" (click)="displayTranslateWord = true">display</button>
     <div *ngIf="displayTranslateWord">
         <div>Translate word: {{singleWord.TranslateWord}}</div>
-        <div>
+        <div *ngIf = "!singleWord.isRepeatd" >
             <button (click) = setNextRepeDate(1)>1</button>
             <button (click) = setNextRepeDate(2)>2</button>
             <button (click) = setNextRepeDate(3)>3</button>

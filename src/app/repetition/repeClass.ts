@@ -7,6 +7,7 @@ export class SingleWord {
     TranslateWord: string;
     TranslateWordId: number
     Type: string;
+    isRepeatd: boolean;
 
     constructor(list: DailyList) {
         this.CreationDate = new Date(list.CreationDate);
@@ -17,6 +18,7 @@ export class SingleWord {
         this.TranslateWord = list.TranslateWord;
         this.TranslateWordId = list.TranslateWordId;
         this.Type = list.Type;
+        this.isRepeatd = list.isRepeatd? list.isRepeatd: false;
     }
 
     getDateFormat(date: Date): string {
