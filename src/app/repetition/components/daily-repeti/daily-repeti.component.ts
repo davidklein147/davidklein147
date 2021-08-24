@@ -23,6 +23,8 @@ export class DailyRepetiComponent implements OnInit {
     this.repeSer.getDailyListFromServer();
     this.repeSer.getDailyList().subscribe(data => {
       this.dailyList = data;
+      console.log(this.dailyList);
+
       for (const isRepeatd of this.dailyList) {
         isRepeatd.isRepeatd = false
       }
@@ -35,16 +37,16 @@ export class DailyRepetiComponent implements OnInit {
       console.log(this.dailyList);
       alert("Today there are no words to repeat!")
     } else if (!this.dailyList[this.repeSer.counter]) {
-      var isThere;
-      if (isThere = this.dailyList.findIndex(isRepeatd => isRepeatd.isRepeatd == false) > -1) {
+      var isThere = this.dailyList.findIndex(isRepeatd => isRepeatd.isRepeatd == false)
+      if (isThere > -1) {
         this.repeSer.counter = isThere
+        this.singleWordDisplay()
       } else {
         alert("Congratulations! \n You have completed the daily list")
       }
     }
     else {
       console.log(this.dailyList[this.repeSer.counter]);
-
       this.singleWord = new SingleWord(this.dailyList[this.repeSer.counter])
       if (!this.dailyList[this.repeSer.counter].isRepeatd) {
         this.displayTranslateWord = false
@@ -71,16 +73,16 @@ export class DailyRepetiComponent implements OnInit {
   }
 
   next(): void {
-    if(this.repeSer.counter < this.dailyList.length){    
-    this.repeSer.counter++;
-    this.singleWordDisplay()
+    if (this.repeSer.counter < this.dailyList.length) {
+      this.repeSer.counter++;
+      this.singleWordDisplay()
     }
   }
 
   beck(): void {
-    if(this.repeSer.counter > 0){    
-    this.repeSer.counter--;
-    this.singleWordDisplay()
+    if (this.repeSer.counter > 0) {
+      this.repeSer.counter--;
+      this.singleWordDisplay()
     }
   }
 

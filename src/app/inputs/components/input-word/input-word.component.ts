@@ -44,6 +44,7 @@ export class InputWordComponent implements OnInit {
     this.inputWord.repetitionData.setDateByLavel(new Lavels());
     console.log(this.inputWord);
     this.inputSer.sendInputWord();
+    
   }
 
   send() {

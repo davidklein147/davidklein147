@@ -55,6 +55,9 @@ export class InputsService {
     this.http.postWithToken("inputs/create", this.inputWord).subscribe(
       res =>{
       console.log(res);
+      this.inputWord.sourceWord.sourceWord = "";
+      this.inputWord.translateWord.translateWord = "";
+      this.inputWord.translateWord.partOfSpeech = ""
       
     }, err =>{
       console.log(err);

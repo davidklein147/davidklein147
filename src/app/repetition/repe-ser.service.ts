@@ -19,7 +19,6 @@ export class RepeSerService {
 
   getDailyList(): Observable<DailyList[]> {
     console.log(this.dailyList);
-
     return this.dailyList;
   }
 

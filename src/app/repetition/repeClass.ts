@@ -10,6 +10,8 @@ export class SingleWord {
     isRepeatd: boolean;
 
     constructor(list: DailyList) {
+        console.log(list);
+        
         this.CreationDate = new Date(list.CreationDate);
         this.Lavel = list.Lavel;
         this.PartOfSpeech = list.PartOfSpeech;
@@ -22,7 +24,7 @@ export class SingleWord {
     }
 
     getDateFormat(date: Date): string {
-        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+        return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
     }
 }
 
