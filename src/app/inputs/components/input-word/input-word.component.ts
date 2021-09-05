@@ -37,8 +37,8 @@ export class InputWordComponent implements OnInit {
   }
 
   inputWordSetAndSend(): void {
-    //let date = new Date()
-  //  this.inputSer.inputWord.sourceWord.userId = 3;
+    this.inputWord.sourceWord.sourceWord = this.trimString(this.inputWord.sourceWord.sourceWord)
+    this.inputWord.translateWord.translateWord = this.trimString(this.inputWord.translateWord.translateWord)
     this.inputWord.translateWord.setCreationDate(new Date()); 
     //date.setDate(date.getDate() + 1) 
     this.inputWord.repetitionData.setDateByLavel(new Lavels());
@@ -47,8 +47,12 @@ export class InputWordComponent implements OnInit {
     
   }
 
+  trimString(string: string):string{
+    return string.trim()
+  }
+
   send() {
-    //debugger
+
     var sourcelang = this.listOfLang.findIndex(lang => lang.Id == this.inputWord.sourceWord.sourceLang)
     var translatelang = this.listOfLang.findIndex(lang => lang.Id == this.inputWord.translateWord.translateLang)
     console.log( sourcelang +"   " + translatelang);

@@ -39,7 +39,7 @@ export class TranslateWord {
         this.translateWord = "";
         this.translateLang = 0;
         this.creationDate = null;
-        this.partOfSpeech = "";
+        this.partOfSpeech = null;
     }
 
     public getCreationDate(): string {
@@ -50,4 +50,6 @@ export class TranslateWord {
         this.creationDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
     }
 }
+
+
 

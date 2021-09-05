@@ -14,8 +14,8 @@
 <br>
 <label>part of speech 
 <select [(ngModel)] = "inputWord.translateWord.partOfSpeech" >
-    <option value = undifind selected hidden >select a part</option>
-    <option value = null  >without part</option>
+    <option [value] = null  hidden >select a part</option>
+    <option [value] = null  >without part</option>
     <option *ngFor = "let part of listPartOfSpeech" [value]="part.Part">{{part.Part}}</option>
 </select>
 </label>
