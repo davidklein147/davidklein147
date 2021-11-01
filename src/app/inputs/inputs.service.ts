@@ -1,3 +1,4 @@
+import { GoogleObj } from './../interfaces';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpService } from '../services/http.service';
@@ -64,5 +65,9 @@ export class InputsService {
       console.log(err.text);
       
     })
+  }
+
+  getTranslatedword(googleObj:GoogleObj):Observable<any>{
+    return this.http.postWithToken("google/translate", googleObj)
   }
 }

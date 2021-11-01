@@ -62,7 +62,8 @@ export class InputWordComponent implements OnInit {
       this.listOfLang[sourcelang].LanguageCode,
       this.listOfLang[translatelang].LanguageCode)
    
-    this.google.translate(googleObj).subscribe(
+    // this.google.translate(googleObj).subscribe(
+      this.inputSer.getTranslatedword(googleObj).subscribe(
       (res: any) => {
         this.inputWord.translateWord.translateWord = res.data.translations[0].translatedText
         console.log(res);
