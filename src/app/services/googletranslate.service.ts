@@ -11,6 +11,7 @@ export class GoogletranslateService {
   url = `https://translation.googleapis.com/language/translate/v2/?key=`;
   urlList = `https://translation.googleapis.com/language/translate/v2/languages/?key=`;
   urlList1 = `https://translation.googleapis.com/language/translate/v2/detect/?key=`;
+  key ='';
 
   constructor(private http: HttpClient) {
 
